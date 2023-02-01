@@ -20,6 +20,7 @@
 	<link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/css/theme.min.css" />
 	<link rel="stylesheet" href="font.css" />
 	
+	
 	<noscript>
 		<link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/wet-boew/css/noscript.min.css" />
 	</noscript>
@@ -211,6 +212,11 @@
 
 				</div>
 				<div class="form-group">
+					
+					<button type="button" id="Generate" class="btn btn-primary"  onclick ="myFunction()">Generate</button>
+					<div id="snackbar">Some text some message..</div>
+			</div>
+				<div class="form-group">
 					<label for="generatedCode" class="control-label">Generated
 						Code&#32;<code>textarea</code></label>
 					
@@ -218,11 +224,7 @@
 							class="form-control">Generated Code will be displayed in this text area.</textarea>
 					
 				</div>
-				<div class="form-group">
-					
-						<button type="button" id="Generate" class="btn btn-primary">Generate</button>
-					
-				</div>
+			
 			</form>
 
 			
@@ -308,11 +310,54 @@
 		crossorigin="anonymous"></script>
 	<script src="https://wet-boew.github.io/themes-dist/GCWeb/wet-boew/js/wet-boew.min.js"></script>
 	<script src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/js/theme.min.js"></script>
+	<style>
+		#snackbar {
+		  visibility: hidden;
+		  min-width: 250px;
+		  margin-left: -125px;
+		  background-color: #333;
+		  color: #fff;
+		  text-align: center;
+		  border-radius: 2px;
+		  padding: 16px;
+		  position: fixed;
+		  z-index: 1;
+		  left: 50%;
+		  bottom: 30px;
+		  font-size: 17px;
+		}
+		
+		#snackbar.show {
+		  visibility: visible;
+		  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+		}
+		
+		@-webkit-keyframes fadein {
+		  from {bottom: 0; opacity: 0;} 
+		  to {bottom: 30px; opacity: 1;}
+		}
+		
+		@keyframes fadein {
+		  from {bottom: 0; opacity: 0;}
+		  to {bottom: 30px; opacity: 1;}
+		}
+		
+		@-webkit-keyframes fadeout {
+		  from {bottom: 30px; opacity: 1;} 
+		  to {bottom: 0; opacity: 0;}
+		}
+		
+		@keyframes fadeout {
+		  from {bottom: 30px; opacity: 1;}
+		  to {bottom: 0; opacity: 0;}
+		}
+		</style>
+		
 </body>
-
 <script src="logic.js">
 </script>
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
-</script>
+</script> 
