@@ -19,8 +19,8 @@
 	<link href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon" />
 	<link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/css/theme.min.css" />
 	<link rel="stylesheet" href="font.css" />
-	
-	
+
+
 	<noscript>
 		<link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/wet-boew/css/noscript.min.css" />
 	</noscript>
@@ -175,9 +175,10 @@
 			<form autocomplete="off" method="post" action="#" class="">
 				<div class="form-group">
 					<label for="TextSpacing" class=" control-label">Text Spacing&#32;</label>
-					
-						<input type="number" id="TextSpacing" name="Text Spacing" class="form-control" step=".01" value="0" />
-					
+
+					<input type="number" id="TextSpacing" name="Text Spacing" class="form-control" step=".01"
+						value="0" />
+
 				</div>
 				<!--["Tahoma", "Calibri", "Helvetica", "Arial", "Verdana", "Times New Roman", "Arvo", "Museo Slab", "Rockwell", "Courier"]-->
 				<div class="form-group">
@@ -206,28 +207,35 @@
 								Rockwell</option>
 							<option value="Courier">
 								Courier</option>
-						
+
 						</select>
 					</div>
 
 				</div>
 				<div class="form-group">
-					
-					<button type="button" id="Generate" class="btn btn-primary"  onclick ="myFunction()">Generate</button>
-					<div id="snackbar">Some text some message..</div>
-			</div>
+
+					<button type="button" id="Generate" class="btn btn-primary"
+						onclick="notification()">Generate</button>
+
+						<div id="snackbar">Code Updated</div>
+				</div>
+				<!-- <div class="form-group">
+					<button type="button" id="preview" class="btn btn-primary" onclick="test()">Preview</button>
+					<div id="snackbar">Code Updated</div>
+				</div> -->
 				<div class="form-group">
 					<label for="generatedCode" class="control-label">Generated
 						Code&#32;<code>textarea</code></label>
-					
-						<textarea readonly id="generatedCode" rows="3" cols="50" name="data2"
-							class="form-control">Generated Code will be displayed in this text area.</textarea>
-					
+
+					<textarea readonly id="generatedCode" rows="3" cols="50" name="data2"
+						class="form-control">Generated Code will be displayed in this text area.</textarea>
+
 				</div>
-			
+				<button type="button" id="copy" class="btn btn-primary" onclick="copyCode()">Copy Code</button>
+
 			</form>
 
-			
+
 
 			<footer class="pagedetails">
 				<h2 class="wb-inv">Page details</h2>
@@ -312,52 +320,108 @@
 	<script src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/js/theme.min.js"></script>
 	<style>
 		#snackbar {
-		  visibility: hidden;
-		  min-width: 250px;
-		  margin-left: -125px;
-		  background-color: #333;
-		  color: #fff;
-		  text-align: center;
-		  border-radius: 2px;
-		  padding: 16px;
-		  position: fixed;
-		  z-index: 1;
-		  left: 50%;
-		  bottom: 30px;
-		  font-size: 17px;
+			visibility: hidden;
+			background-color: #333;
+			color: #fff;
+			text-align: center;
+			padding: 16px;
+			position: absolute;
+			z-index: 1;
+			font-size: 17px;
+			left:10%;
+			bottom: 45%;
 		}
-		
+
 		#snackbar.show {
-		  visibility: visible;
-		  -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-		  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+			visibility: visible;
+			-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+			animation: fadein 0.5s, fadeout 0.5s 2.5s;
 		}
-		
+
 		@-webkit-keyframes fadein {
-		  from {bottom: 0; opacity: 0;} 
-		  to {bottom: 30px; opacity: 1;}
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
 		}
-		
+
 		@keyframes fadein {
-		  from {bottom: 0; opacity: 0;}
-		  to {bottom: 30px; opacity: 1;}
+			from {
+				opacity: 0;
+			}
+
+			to {
+				opacity: 1;
+			}
 		}
-		
+
 		@-webkit-keyframes fadeout {
-		  from {bottom: 30px; opacity: 1;} 
-		  to {bottom: 0; opacity: 0;}
+			from {
+				opacity: 1;
+			}
+
+			to {
+				opacity: 0;
+			}
 		}
-		
+
 		@keyframes fadeout {
-		  from {bottom: 30px; opacity: 1;}
-		  to {bottom: 0; opacity: 0;}
+			from {
+				opacity: 1;
+			}
+
+			to {
+				opacity: 0;
+			}
 		}
-		</style>
-		
+
+		.tooltip {
+			position: relative;
+			display: inline-block;
+		}
+
+		.tooltip .tooltiptext {
+			visibility: hidden;
+			width: 140px;
+			background-color: #555;
+			color: #fff;
+			text-align: center;
+			border-radius: 6px;
+			padding: 5px;
+			position: absolute;
+			z-index: 1;
+			bottom: 150%;
+			left: 50%;
+			margin-left: -75px;
+			opacity: 0;
+			transition: opacity 0.3s;
+		}
+
+		.tooltip .tooltiptext::after {
+			content: "";
+			position: absolute;
+			top: 100%;
+			left: 50%;
+			margin-left: -5px;
+			border-width: 5px;
+			border-style: solid;
+			border-color: #555 transparent transparent transparent;
+		}
+
+		.tooltip:hover .tooltiptext {
+			visibility: visible;
+			opacity: 1;
+		}
+	</style>
+
 </body>
 <script src="logic.js">
 </script>
+
 </html>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
-</script> 
+</script>

@@ -16,10 +16,30 @@ generate.addEventListener('click', (event) => {
     else {  result.textContent = `Please select any of the above fields to generate bookmarklet.`;}
 
 }); 
-generate.selectTextSpace.value
-function myFunction() {
+
+function notification() {
 
     var x = document.getElementById("snackbar");
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+  }
+  function test() {
+
+    var myWindow = window.open("", "MsgWindow", "width=200,height=100");
+    myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
+  }
+
+  function copyCode() {
+    // Get the text field
+    var copyText = document.getElementById("generatedCode");
+  
+    // Select the text field
+    copyText.select();
+    copyText.setSelectionRange(0, 99999); // For mobile devices
+  
+     // Copy the text inside the text field
+    navigator.clipboard.writeText(copyText.value);
+  
+    // Alert the copied text
+    alert("Copied the text: " + copyText.value);
   }
