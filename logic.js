@@ -19,7 +19,7 @@ generate.addEventListener('click', (event) => {
 
 function notification() {
 
-    var x = document.getElementById("snackbar");
+    var x = document.getElementById("notification");
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }

@@ -212,13 +212,14 @@
 					</div>
 
 				</div>
-				<div class="form-group">
+				<div id="generateArea">
+				<div class="form-group" >
 
 					<button type="button" id="Generate" class="btn btn-primary"
 						onclick="notification()">Generate</button>
-
-					<div id="snackbar">Code Updated</div>
 				</div>
+				<div id="notification">Code Updated</div>
+			</div>
 				<!-- <div class="form-group">
 					<button type="button" id="preview" class="btn btn-primary" onclick="test()">Preview</button>
 					<div id="snackbar">Code Updated</div>
@@ -319,20 +320,29 @@
 	<script src="https://wet-boew.github.io/themes-dist/GCWeb/wet-boew/js/wet-boew.min.js"></script>
 	<script src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/js/theme.min.js"></script>
 	<style>
-		#snackbar {
+		#notification {
 			visibility: hidden;
-			background-color: #333;
+			 background-color: #333;
 			color: #fff;
 			text-align: center;
-			padding: 16px;
-			position: absolute;
+			padding: 7px;
 			z-index: 1;
-			font-size: 17px;
-			left: 10%;
-			bottom: 45%;
+			font-size: 15px;
+			
 		}
+		#generateArea {
+  /*styling couses*/
+  display: flex;
+  /*making flex box*/
+  
+  flex-wrap: wrap;
+  /*will wrap according to display resolution*/
+ align-items: flex-start;
+ flex-direction: row;
+  /*even space between every box*/
+}
 
-		#snackbar.show {
+		#notification.show {
 			visibility: visible;
 			-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
 			animation: fadein 0.5s, fadeout 0.5s 2.5s;
