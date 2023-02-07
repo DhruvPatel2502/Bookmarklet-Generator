@@ -23,12 +23,6 @@ function notification() {
     x.className = "show";
     setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
-  function test() {
-
-    var myWindow = window.open("", "MsgWindow", "width=200,height=100");
-    myWindow.document.write("<p>This is 'MsgWindow'. I am 200px wide and 100px tall!</p>");
-  }
-
   function copyCode() {
     // Get the text field
     var copyText = document.getElementById("generatedCode");
@@ -39,7 +33,7 @@ function notification() {
   
      // Copy the text inside the text field
     navigator.clipboard.writeText(copyText.value);
-  
-    // Alert the copied text
-    alert("Copied the text: " + copyText.value);
+    var x = document.getElementById("copyNotification");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }

@@ -14,11 +14,11 @@
 	<meta name="dcterms.language" content="eng" />
 	<meta name="dcterms.subject" content="" />
 	<meta name="dcterms.issued" content="" />
-	<meta name="dcterms.modified" content="2017-09-29" />
+	<meta name="dcterms.modified" content="2022-02-15" />
 
 	<link href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/assets/favicon.ico" rel="icon" type="image/x-icon" />
 	<link rel="stylesheet" href="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/css/theme.min.css" />
-	<link rel="stylesheet" href="font.css" />
+	<link rel="stylesheet" href="index.css" />
 
 
 	<noscript>
@@ -213,17 +213,13 @@
 
 				</div>
 				<div id="generateArea">
-				<div class="form-group" >
+					<div class="form-group">
 
-					<button type="button" id="Generate" class="btn btn-primary"
-						onclick="notification()">Generate</button>
+						<button type="button" id="Generate" class="btn btn-primary"
+							onclick="notification()">Generate</button>
+					</div>
+					<div id="notification" role="status">Code Updated</div>
 				</div>
-				<div id="notification">Code Updated</div>
-			</div>
-				<!-- <div class="form-group">
-					<button type="button" id="preview" class="btn btn-primary" onclick="test()">Preview</button>
-					<div id="snackbar">Code Updated</div>
-				</div> -->
 				<div class="form-group">
 					<label for="generatedCode" class="control-label">Generated
 						Code&#32;<code>textarea</code></label>
@@ -232,9 +228,13 @@
 						class="form-control">Generated Code will be displayed in this text area.</textarea>
 
 				</div>
-				<button type="button" id="copy" class="btn btn-primary" onclick="copyCode()">Copy Code</button>
+				<div class="form-group" id="copyAndNotification">
+					<button type="button" id="copy" class="btn btn-primary" onclick="copyCode()">Copy Code</button>
+					<div id="copyNotification" role="status">Copied</div>
+				</div>
 
 			</form>
+
 
 
 
@@ -319,114 +319,6 @@
 		crossorigin="anonymous"></script>
 	<script src="https://wet-boew.github.io/themes-dist/GCWeb/wet-boew/js/wet-boew.min.js"></script>
 	<script src="https://wet-boew.github.io/themes-dist/GCWeb/GCWeb/js/theme.min.js"></script>
-	<style>
-		#notification {
-			visibility: hidden;
-			 background-color: #333;
-			color: #fff;
-			text-align: center;
-			padding: 7px;
-			z-index: 1;
-			font-size: 15px;
-			margin-left: 1%;
-			
-		}
-		#generateArea {
-  /*styling couses*/
-  display: flex;
-  /*making flex box*/
-  
-  flex-wrap: wrap;
-  /*will wrap according to display resolution*/
- align-items: flex-start;
- flex-direction: row;
-  /*even space between every box*/
-}
-
-		#notification.show {
-			visibility: visible;
-			-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-			animation: fadein 0.5s, fadeout 0.5s 2.5s;
-		}
-
-		@-webkit-keyframes fadein {
-			from {
-				opacity: 0;
-			}
-
-			to {
-				opacity: 1;
-			}
-		}
-
-		@keyframes fadein {
-			from {
-				opacity: 0;
-			}
-
-			to {
-				opacity: 1;
-			}
-		}
-
-		@-webkit-keyframes fadeout {
-			from {
-				opacity: 1;
-			}
-
-			to {
-				opacity: 0;
-			}
-		}
-
-		@keyframes fadeout {
-			from {
-				opacity: 1;
-			}
-
-			to {
-				opacity: 0;
-			}
-		}
-
-		.tooltip {
-			position: relative;
-			display: inline-block;
-		}
-
-		.tooltip .tooltiptext {
-			visibility: hidden;
-			width: 140px;
-			background-color: #555;
-			color: #fff;
-			text-align: center;
-			border-radius: 6px;
-			padding: 5px;
-			position: absolute;
-			z-index: 1;
-			bottom: 150%;
-			left: 50%;
-			margin-left: -75px;
-			opacity: 0;
-			transition: opacity 0.3s;
-		}
-
-		.tooltip .tooltiptext::after {
-			content: "";
-			position: absolute;
-			top: 100%;
-			left: 50%;
-			margin-left: -5px;
-			border-width: 5px;
-			border-style: solid;
-			border-color: #555 transparent transparent transparent;
-		}
-
-		.tooltip:hover .tooltiptext {
-			visibility: visible;
-			opacity: 1;
-		}
-	</style>
 
 </body>
 <script src="logic.js">
