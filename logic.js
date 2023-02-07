@@ -27,7 +27,7 @@ function notification() {
   x.className = "show";
   setTimeout(function () { x.className = x.className.replace("show", ""); }, 3000);
 }
-function copyCode() {
+function copyCode() { 
   // Get the text field
   var copyText = document.getElementById("generatedCode");
 
